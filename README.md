@@ -116,7 +116,9 @@ ClashRoyale私服技术文档.md  完整开发/踩坑文档
   召唤在纯数据里做不到；改造时要保证引用图是无环的（终点是角色/无引用的叶子节点）。
 - `DeathSpawnCharacter=建筑` 加载期安全但运行时被静默忽略（两轮实测不生效）；
   `DeathAreaEffect` 触发自定义区域效果在进训练营时仍会被更深层加载展开，同样会崩。
-- 随机方向落点用 `RandomAngle=360 + MinDistance=3000 + Homing=true`（界地狱龙滚木同款）；
+- 随机方向落点：**建筑发射器只认 `RandomAngle=360 + RandomDistance=4000`（无 Homing）**
+  （界地狱塔火球实测有效）；滚木那套 `MinDistance+RandomAngle+Homing` 只在角色发射器上
+  存在理论路径，实测迫击炮/地狱龙均不生效；
   “落点生成单位”用投射物 `SpawnCharacter=角色`（哥布林飞桶同款，稳定可用）。
 - `RandomAngle`/`RandomDistance` 只能随机投射物飞行/落点，不能随机出生点方向。
 - 版本较老：精英野蛮人 = `AngryBarbarian`，幻影刺客 = `Assassin`，狂暴 = `BarbarianRage`。

@@ -19,8 +19,8 @@ import zipfile
 
 ROOT = r"C:\Users\YHSome\Projects\OtherProjects\ClashRoyal"
 SERVER_CSV = os.path.join(ROOT, "HashRoyale", "app", "GameAssets", "csv_logic")
-SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod41-nogadget.apk")
-OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod42-nogadget-unsigned.apk")
+SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod42-nogadget.apk")
+OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod43-nogadget-unsigned.apk")
 
 ATTACK_MS = "300"
 RANDOM_OFFSET = "3000"
@@ -106,9 +106,14 @@ def build_building(bd_rows, bd_h):
 def build_projectile(pr_rows, pr_h):
     p = clone(pr_rows, "MortarProjectile")
     setf(p, pr_h, "Name", "BoundaryMortarProjectile")
-    setf(p, pr_h, "Homing", "true")
+    # 建筑发射器认 RandomAngle+RandomDistance（界地狱塔火球同款）；
+    # 滚木的 MinDistance+RandomAngle+Homing 只在角色发射器上生效
+    setf(p, pr_h, "Speed", "600")
+    setf(p, pr_h, "Gravity", "50")
+    setf(p, pr_h, "Homing", "")
+    setf(p, pr_h, "MinDistance", "")
     setf(p, pr_h, "RandomAngle", "360")
-    setf(p, pr_h, "MinDistance", RANDOM_OFFSET)
+    setf(p, pr_h, "RandomDistance", "4000")
     setf(p, pr_h, "SpawnCharacterLevelIndex", "1")
     setf(p, pr_h, "SpawnCharacterDeployTime", "0")
     setf(p, pr_h, "SpawnCharacter", "Skeleton")
