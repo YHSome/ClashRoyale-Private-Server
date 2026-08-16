@@ -25,8 +25,8 @@ import zipfile
 
 ROOT = r"C:\Users\YHSome\Projects\OtherProjects\ClashRoyal"
 SERVER_CSV = os.path.join(ROOT, "HashRoyale", "app", "GameAssets", "csv_logic")
-SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod51-gadget.apk")
-OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod52-gadget-unsigned.apk")
+SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod53-gadget.apk")
+OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod54-gadget-unsigned.apk")
 
 
 def sc_decompress(data: bytes) -> bytes:
