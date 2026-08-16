@@ -60,3 +60,7 @@ HashRoyale/**/*.pdb
 
 # HashRoyale 原有 git 元数据备份（仅保留，不入库）
 HashRoyale/.git-bak/
+
+tools/apk51/
+tools/player5_backup.sql.txt
+clients/emu-*.png
