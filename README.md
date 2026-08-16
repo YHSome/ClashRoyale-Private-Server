@@ -25,7 +25,7 @@
 | 界气球兵 | BoundaryBalloon | 气球兵 + 幻影刺客突刺特性（全图视野/突袭） |
 | 界地狱飞龙 | BoundaryInfernoDragon | 攻击无伤害；每次攻击从远处以随机角度发射复仇滚木（可对空） |
 | 界地狱塔 | BoundaryInfernoTower | 地狱塔克隆；每次攻击向随机位置发射火球 |
-| 界迫击炮 | BoundaryMortar | 0.3 秒快速攻击；炮弹向随机方向偏移 3 格落地，落点生成一只小骷髅 |
+| 界迫击炮 | BoundaryMortar | 0.3 秒快速攻击；炮弹在目标方向±90°内随机偏移落地，落点生成一只小骷髅 |
 
 ## 环境要求
 
@@ -116,9 +116,9 @@ ClashRoyale私服技术文档.md  完整开发/踩坑文档
   召唤在纯数据里做不到；改造时要保证引用图是无环的（终点是角色/无引用的叶子节点）。
 - `DeathSpawnCharacter=建筑` 加载期安全但运行时被静默忽略（两轮实测不生效）；
   `DeathAreaEffect` 触发自定义区域效果在进训练营时仍会被更深层加载展开，同样会崩。
-- 随机方向落点：**建筑发射器只认 `RandomAngle=360 + RandomDistance=4000`（无 Homing）**
-  （界地狱塔火球实测有效）；滚木那套 `MinDistance+RandomAngle+Homing` 只在角色发射器上
-  存在理论路径，实测迫击炮/地狱龙均不生效；
+- 随机落点：**建筑发射器只认 `RandomAngle + RandomDistance`（无 Homing）**（界地狱塔火球实测有效）；
+  `RandomAngle` 是总扇区宽度：360=全方向，180=目标方向±90°；滚木那套
+  `MinDistance+RandomAngle+Homing` 实测迫击炮/地狱龙均不生效；
   “落点生成单位”用投射物 `SpawnCharacter=角色`（哥布林飞桶同款，稳定可用）。
 - `RandomAngle`/`RandomDistance` 只能随机投射物飞行/落点，不能随机出生点方向。
 - 版本较老：精英野蛮人 = `AngryBarbarian`，幻影刺客 = `Assassin`，狂暴 = `BarbarianRage`。
