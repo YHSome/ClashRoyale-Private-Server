@@ -25,7 +25,7 @@
 | 界气球兵 | BoundaryBalloon | 气球兵 + 幻影刺客突刺特性（全图视野/突袭） |
 | 界地狱飞龙 | BoundaryInfernoDragon | 攻击无伤害；每次攻击从远处以随机角度发射复仇滚木（可对空） |
 | 界地狱塔 | BoundaryInfernoTower | 地狱塔克隆；每次攻击向随机位置发射火球 |
-| 界迫击炮 | BoundaryMortar | 迫击炮克隆；炮弹落地造成伤害并在落点召唤一座界迫击炮（召唤体用原版炮弹，避免自引用环） |
+| 界迫击炮 | BoundaryMortar | 迫击炮克隆；炮弹落地后在落点旁 3 格召唤界迫击炮，A/B 交替无限增殖（A 蓝 / B 红） |
 
 ## 环境要求
 
@@ -111,7 +111,10 @@ ClashRoyale私服技术文档.md  完整开发/踩坑文档
   命中时 `SpawnCharacter` 生成容器；不要用“角色桶”（缺动画剪辑且会闪退）。
 - 多单位/双效果可以用“容器链”：投射物 → 容器（DeployTime 引信）→ 死亡时 `DeathAreaEffect`/`DeathSpawnCharacter`。
 - 投射物 `SpawnCharacter` 不要指向“会发射同一种炮弹的建筑”，否则形成 炮弹→建筑→炮弹 的自引用环，
-  客户端本地会无限增殖/反复加载，启动约 40 秒后静默退出；解决：召唤体改用不产生子代的普通炮弹建筑。
+  客户端本地会无限增殖/反复加载，启动约 40 秒后静默退出；解决：改成 **A↔B 两种建筑交替召唤**
+  （A 的炮弹召唤 B，B 的炮弹召唤 A），同样无限增殖但不再自引用崩溃。
+- “落点偏移 N 格”用容器链实现：投射物命中先生成一个容器（`DeployTime` 引信，100ms 后死亡），
+  容器 `DeathSpawnCharacter` 生成目标建筑，`DeathSpawnRadius=DeathSpawnMinRadius=3000` 即精确偏移 3 格。
 - `RandomAngle`/`RandomDistance` 只能随机投射物飞行/落点，不能随机出生点方向。
 - 版本较老：精英野蛮人 = `AngryBarbarian`，幻影刺客 = `Assassin`，狂暴 = `BarbarianRage`。
 
