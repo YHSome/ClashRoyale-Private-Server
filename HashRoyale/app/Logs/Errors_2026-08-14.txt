@@ -1,0 +1,11 @@
+[23:50:34.8368][ERROR]  ->  DotNetty.Codecs.TooLongFrameException: Adjusted frame length exceeds 512: 7566353 - discarded
+   at DotNetty.Codecs.LengthFieldBasedFrameDecoder.Fail(Int64 frameLength)
+   at DotNetty.Codecs.LengthFieldBasedFrameDecoder.FailIfNecessary(Boolean firstDetectionOfTooLongFrame)
+   at DotNetty.Codecs.LengthFieldBasedFrameDecoder.Decode(IChannelHandlerContext context, IByteBuffer input)
+   at DotNetty.Codecs.LengthFieldBasedFrameDecoder.Decode(IChannelHandlerContext context, IByteBuffer input, List`1 output)
+   at DotNetty.Codecs.ByteToMessageDecoder.CallDecode(IChannelHandlerContext context, IByteBuffer input, List`1 output)
+   at DotNetty.Codecs.ByteToMessageDecoder.ChannelRead(IChannelHandlerContext context, Object message)
+   at DotNetty.Transport.Channels.AbstractChannelHandlerContext.InvokeChannelRead(Object msg)
+[23:54:30.1513][ERROR]  ->  System.Net.Sockets.SocketException (10054): 远程主机强迫关闭了一个现有的连接。
+   at DotNetty.Transport.Channels.Sockets.SocketChannelAsyncOperation.Validate()
+   at DotNetty.Transport.Channels.Sockets.AbstractSocketByteChannel.SocketByteChannelUnsafe.FinishRead(SocketChannelAsyncOperation operation)

@@ -1,0 +1,62 @@
+# 客户端 APK（体积大且含版权资源，不入库；构建方法见 README）
+clients/
+*.apk
+*.idsig
+
+# 解码/逆向中间产物
+tools/cr-decode/
+tools/astral-repack/
+tools/_scresearch/
+tools/cr-gadget-*.apk
+tools/cr-*-aligned.apk
+tools/cr-*-unsigned.apk
+
+# Frida gadget 二进制（脚本与文档入库，二进制自备）
+tools/*.so
+tools/*.so.xz
+tools/*.config.so
+
+# Python
+__pycache__/
+*.pyc
+
+# 日志
+*.log
+*.err.log
+
+# 临时/研究中间文件
+tools/_rt_*.json
+tools/_rt_bytes.json
+tools/_bt_raw*.json
+tools/_insn_stream.json
+tools/_find_data.json
+tools/_vtables*.json
+tools/_free_bt.json
+tools/_objsize.json
+tools/_alloc*.json
+tools/_proj_data_dump.json
+tools/_screen.png
+tools/mime_dump.eml
+tools/*.eml
+tools/update_email_*.html
+_email_*.html
+_email_done.html
+
+# 第三方工具/游戏资源中间文件
+tools/apktool.jar
+tools/*.luac
+tools/*.sc
+
+# 账号/令牌（bot 运行所需，用 bot_state.example.json 模板自行创建）
+tools/bot_state*.json
+
+# .NET 构建产物
+HashRoyale/src/**/bin/
+HashRoyale/src/**/obj/
+HashRoyale/**/*.pdb
+
+# 数据库/环境
+*.sql
+
+# HashRoyale 原有 git 元数据备份（仅保留，不入库）
+HashRoyale/.git-bak/

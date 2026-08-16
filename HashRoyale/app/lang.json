@@ -1,0 +1,9 @@
+{
+  "PlayerJoined": "Player %PlayerName joined the server",
+  "PlayerDisconnected": "Player %PlayerName disconnected",
+  "StartingServer": "Server is starting, please wait",
+  "ShuttingDownServer": "Server is shutting down, sorry for inconvenience",
+  "BattleStarted": "Battle with id %id started",
+  "BattleEnded": "Battle with id %id ended",
+  "PlayerJoinedBattle": "Player %username joined battle with id %id"
+}

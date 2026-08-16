@@ -1,0 +1,457 @@
+[00:10:56.7457][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:11:03.8005][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:11:10.8573][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:11:17.8967][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:11:24.9361][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:11:31.9684][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:11:39.0043][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:11:46.0312][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:11:53.0717][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:12:00.1102][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:12:07.1332][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:12:14.1552][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:14:00.3993][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:14:07.4304][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:14:14.4804][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:14:21.5365][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:14:28.5911][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:14:35.6159][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:14:42.6368][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:14:49.6635][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:14:56.6901][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:15:03.7201][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:15:10.7563][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:15:17.8000][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:15:24.8405][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:15:31.8869][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:15:38.9535][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:15:45.9777][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:15:53.0203][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:16:00.0745][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:16:07.1063][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:16:14.1501][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:16:21.1870][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:16:28.2230][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:16:35.2694][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:16:42.3056][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:16:49.3431][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:16:56.3867][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:17:03.4269][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:17:10.4797][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:17:17.5340][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:17:24.5833][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:17:31.6209][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:17:38.6547][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:17:45.6825][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:17:52.6974][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:17:59.7257][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:18:06.7561][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:18:13.7865][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:18:20.8231][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:18:27.8487][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:18:34.8932][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:18:41.9317][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:18:48.9784][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:18:56.0351][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:19:03.0784][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:19:10.1096][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:19:17.1596][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:19:24.1726][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:19:31.2041][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:19:38.2294][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:19:45.2656][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:19:52.2965][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:19:59.3207][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:20:06.3439][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:20:13.3740][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:20:20.4372][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:20:27.4873][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:20:34.5350][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:26:31.4788][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:26:38.5263][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:26:45.5526][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:26:52.5769][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:26:59.6080][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:27:06.6488][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:27:13.6890][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:27:20.7259][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:27:27.7752][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:27:34.8234][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:27:41.8611][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:27:48.8912][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:27:55.9202][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:28:02.9451][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:28:09.9794][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:28:17.0059][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:28:24.0246][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:28:31.0378][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:28:38.0744][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:28:45.1309][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:28:52.1842][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:28:59.2147][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:29:06.2462][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:29:13.2947][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:29:20.3227][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:29:27.3576][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:29:34.4126][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:29:41.4537][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:29:48.4877][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:29:55.5034][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:30:02.5399][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:30:09.5769][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:30:16.6123][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:30:23.6484][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:30:30.6851][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:30:37.7180][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:30:44.7680][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:30:51.8097][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:30:58.8619][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:31:05.8847][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:31:12.9141][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:31:19.9451][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:31:26.9675][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:31:33.9982][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:31:41.0392][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:31:48.1692][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:31:55.1995][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:32:02.2434][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:32:09.2794][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:32:16.3289][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:32:23.3807][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:32:30.4218][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:32:37.4572][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:32:44.4809][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:32:51.5140][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:32:58.5445][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:33:05.5752][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:33:12.5948][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:33:19.6248][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:33:26.6613][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:33:33.7112][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:33:40.7478][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:33:47.7832][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:33:54.8204][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:34:01.8604][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:34:08.9169][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:34:15.9689][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:34:23.0356][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:34:30.0721][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:34:37.0997][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:34:44.1308][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:34:51.1646][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:34:58.1844][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:35:05.2087][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:35:12.2588][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:35:19.2960][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:35:26.3361][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:35:33.3680][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:35:40.4096][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:35:47.4515][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:35:54.4936][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:36:01.5364][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:36:08.5636][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:36:15.5934][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:36:22.6238][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:36:29.6495][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:36:36.6844][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:36:43.7171][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:36:50.7582][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:36:57.7946][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:37:04.8418][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:37:11.9012][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:37:18.9255][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:37:25.9465][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:37:32.9862][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:37:40.0358][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:37:47.0718][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:37:54.1057][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:38:01.1479][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:38:08.1952][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:38:15.2317][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:38:22.2772][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:38:29.4074][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:38:36.4510][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:38:43.5055][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:38:50.5450][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:38:57.5875][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:39:04.6349][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:39:11.6873][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:39:18.7268][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:39:25.7721][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:39:32.8133][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:39:39.8500][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:39:46.8686][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:39:53.8981][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:40:00.9314][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:40:07.9721][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:40:15.0245][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:40:22.0736][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:40:29.1249][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:40:36.1556][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:40:43.2044][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:40:50.2296][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:40:57.2715][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:41:04.3140][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:41:11.3580][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:41:18.3902][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:41:25.4257][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:41:32.4616][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:41:39.5043][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:41:46.5384][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:41:53.5830][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:42:00.6234][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:42:07.6684][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:42:14.7086][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:42:21.7385][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:42:28.7739][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:42:35.7990][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:42:42.8086][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:42:49.8439][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:42:56.8808][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:43:03.9403][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:43:10.9692][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:43:18.0115][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:43:25.0550][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:43:32.1045][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:43:39.1507][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:43:46.1898][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:43:53.2409][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:44:00.2837][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:44:07.3023][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:44:14.3319][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:44:21.3473][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:44:28.3883][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:44:35.4133][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:44:42.4393][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:44:49.4736][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:44:56.5150][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:45:03.5494][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:45:10.5910][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:45:17.6332][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:45:24.6691][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:45:31.7194][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:45:38.7559][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:45:45.8427][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:45:52.8721][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:45:59.9212][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:46:06.9580][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:46:13.9873][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:46:21.0316][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:46:28.0857][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:46:35.1304][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:46:42.1748][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:46:49.2330][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:46:56.2927][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:47:03.3444][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:47:10.3927][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:47:17.4326][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:47:24.4785][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:47:31.5150][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:47:38.5401][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:47:45.5701][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:47:52.6054][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:47:59.6604][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:48:06.7047][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:48:13.7542][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:48:20.8027][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:48:27.8466][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:48:34.9015][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:48:41.9552][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:48:48.9940][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[00:48:56.0106][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:02:17.9337][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:02:24.9732][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:02:32.0136][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:02:39.0464][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:02:46.1071][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:02:53.1417][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:03:00.1991][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:03:07.2458][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:03:14.2766][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:03:21.3181][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:03:28.3567][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:03:35.3815][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:03:42.4118][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:03:49.4309][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:03:56.4555][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:04:03.4736][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:04:10.5224][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:04:17.5670][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:04:24.5961][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:04:31.6353][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:04:38.6749][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:04:45.7104][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:04:52.7386][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:04:59.7626][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:05:06.7877][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:05:13.8219][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:05:20.8479][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:05:27.8710][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:05:34.8983][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:05:41.9206][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:05:48.9461][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:05:55.9810][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:06:03.1748][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:06:10.2090][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:06:17.2459][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:06:24.2815][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:06:31.3211][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:06:38.3639][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:06:45.3985][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:06:52.4216][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:06:59.4615][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:07:06.5043][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:07:13.5345][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:07:20.5784][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:07:27.6133][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:07:34.6517][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:07:41.7068][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:07:48.7494][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:07:55.7918][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:08:02.8264][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:08:09.8592][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:08:16.8842][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:08:23.9097][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:08:30.9400][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:08:37.9759][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:08:45.0286][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:08:52.0495][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:08:59.0763][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:09:06.1109][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:09:13.1667][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:09:20.2006][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:09:27.2302][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:09:34.2637][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:09:41.2892][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:09:48.3130][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:09:55.3423][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:10:02.4039][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:10:09.4416][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:10:16.4725][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:10:23.5090][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:10:30.5513][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:10:37.5802][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:10:44.6246][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:10:51.6756][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:10:58.7281][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:11:05.7789][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:11:12.8007][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:11:19.8557][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:11:26.8951][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:11:33.9388][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[01:11:40.9704][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[06:47:38.9553][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[08:22:58.8922][WARN]  ->  SectorCommand 48 is unhandled.
+[08:23:01.3885][WARN]  ->  SectorCommand -54 is unhandled.
+[08:23:01.3885][WARN]  ->  SectorCommand 20 is unhandled.
+[08:23:01.3885][WARN]  ->  SectorCommand -17 is unhandled.
+[08:23:01.3885][WARN]  ->  SectorCommand -6 is unhandled.
+[10:02:42.5874][WARN]  ->  SectorCommand -29 is unhandled.
+[10:02:44.8516][WARN]  ->  SectorCommand 11 is unhandled.
+[10:02:44.8516][WARN]  ->  SectorCommand -770 is unhandled.
+[10:02:47.0487][WARN]  ->  SectorCommand -136855 is unhandled.
+[10:02:47.0487][WARN]  ->  SectorCommand 47 is unhandled.
+[11:39:18.5665][WARN]  ->  SectorCommand -19 is unhandled.
+[11:41:05.4740][WARN]  ->  SectorCommand -1349 is unhandled.
+[11:41:09.7427][WARN]  ->  SectorCommand -107 is unhandled.
+[11:41:09.7427][WARN]  ->  SectorCommand 24 is unhandled.
+[11:50:07.1619][WARN]  ->  SectorCommand -8 is unhandled.
+[11:50:07.1619][WARN]  ->  SectorCommand 52 is unhandled.
+[11:50:07.1619][WARN]  ->  SectorCommand 47 is unhandled.
+[11:50:07.1619][WARN]  ->  SectorCommand 55 is unhandled.
+[11:50:18.8050][WARN]  ->  SectorCommand -36 is unhandled.
+[11:50:18.8050][WARN]  ->  SectorCommand -722162 is unhandled.
+[11:50:18.8050][WARN]  ->  SectorCommand 62 is unhandled.
+[11:50:18.8050][WARN]  ->  SectorCommand 6 is unhandled.
+[11:50:25.8114][WARN]  ->  SectorCommand 54 is unhandled.
+[11:50:27.8428][WARN]  ->  SectorCommand -38 is unhandled.
+[11:50:38.0352][WARN]  ->  SectorCommand -266139 is unhandled.
+[11:50:42.2569][WARN]  ->  SectorCommand 60 is unhandled.
+[12:02:29.7543][WARN]  ->  SectorCommand -20 is unhandled.
+[12:02:50.9930][WARN]  ->  SectorCommand -17 is unhandled.
+[12:02:50.9930][WARN]  ->  SectorCommand 7 is unhandled.
+[12:02:52.5874][WARN]  ->  SectorCommand 39 is unhandled.
+[12:02:52.5874][WARN]  ->  SectorCommand -7399 is unhandled.
+[12:02:52.5874][WARN]  ->  SectorCommand -68089149 is unhandled.
+[12:02:52.5874][WARN]  ->  SectorCommand -295147 is unhandled.
+[12:02:52.5874][WARN]  ->  SectorCommand 47 is unhandled.
+[12:02:52.5874][WARN]  ->  SectorCommand 28 is unhandled.
+[12:02:52.5874][WARN]  ->  SectorCommand 52 is unhandled.
+[12:02:56.6495][WARN]  ->  SectorCommand 143 is unhandled.
+[12:02:56.6495][WARN]  ->  SectorCommand -27 is unhandled.
+[12:03:13.3326][WARN]  ->  SectorCommand -17 is unhandled.
+[12:03:13.3326][WARN]  ->  SectorCommand -5337 is unhandled.
+[12:03:13.3326][WARN]  ->  SectorCommand 28 is unhandled.
+[12:03:23.4018][WARN]  ->  SectorCommand 22 is unhandled.
+[12:03:23.4018][WARN]  ->  SectorCommand 62 is unhandled.
+[12:03:23.4018][WARN]  ->  SectorCommand 25 is unhandled.
+[12:03:23.4018][WARN]  ->  SectorCommand 53 is unhandled.
+[12:03:33.5965][WARN]  ->  SectorCommand 50 is unhandled.
+[12:03:33.5965][WARN]  ->  SectorCommand -43 is unhandled.
+[12:03:43.9410][WARN]  ->  SectorCommand 2 is unhandled.
+[12:03:43.9410][WARN]  ->  SectorCommand 12 is unhandled.
+[12:03:43.9410][WARN]  ->  SectorCommand -47 is unhandled.
+[12:03:43.9410][WARN]  ->  SectorCommand 23 is unhandled.
+[12:03:43.9410][WARN]  ->  SectorCommand -26 is unhandled.
+[12:03:54.1081][WARN]  ->  SectorCommand 6 is unhandled.
+[12:03:56.1846][WARN]  ->  SectorCommand 60 is unhandled.
+[12:03:58.2235][WARN]  ->  SectorCommand -6143 is unhandled.
+[12:04:04.4019][WARN]  ->  SectorCommand -7664 is unhandled.
+[12:04:06.5294][WARN]  ->  SectorCommand -2648 is unhandled.
+[12:04:06.5294][WARN]  ->  SectorCommand -37 is unhandled.
+[12:04:06.5294][WARN]  ->  SectorCommand 2 is unhandled.
+[12:04:08.6706][WARN]  ->  SectorCommand -91267 is unhandled.
+[12:04:08.6706][WARN]  ->  SectorCommand -5 is unhandled.
+[12:04:08.6706][WARN]  ->  SectorCommand -3797 is unhandled.
+[12:04:16.5314][WARN]  ->  SectorCommand -62 is unhandled.
+[12:04:29.0406][WARN]  ->  SectorCommand 3 is unhandled.
+[12:04:41.3553][WARN]  ->  SectorCommand -42 is unhandled.
+[12:04:41.3553][WARN]  ->  SectorCommand -554 is unhandled.
+[12:04:41.3553][WARN]  ->  SectorCommand -30 is unhandled.
+[12:04:47.5367][WARN]  ->  SectorCommand -22 is unhandled.
+[12:04:49.5518][WARN]  ->  SectorCommand -44 is unhandled.
+[12:04:55.6830][WARN]  ->  SectorCommand -24 is unhandled.
+[12:05:08.9359][WARN]  ->  SectorCommand -3551 is unhandled.
+[12:10:06.1203][WARN]  ->  SectorCommand 7 is unhandled.
+[12:10:06.1203][WARN]  ->  SectorCommand -21 is unhandled.
+[12:10:06.1203][WARN]  ->  SectorCommand -10 is unhandled.
+[12:10:06.1203][WARN]  ->  SectorCommand 47 is unhandled.
+[12:10:08.1895][WARN]  ->  SectorCommand 34 is unhandled.
+[12:10:08.1895][WARN]  ->  SectorCommand -30 is unhandled.
+[12:10:12.3801][WARN]  ->  SectorCommand -7321 is unhandled.
+[12:10:24.6520][WARN]  ->  SectorCommand -6244 is unhandled.
+[12:10:26.2363][WARN]  ->  SectorCommand -99167754 is unhandled.
+[12:10:26.2363][WARN]  ->  SectorCommand -26 is unhandled.
+[12:10:30.8806][WARN]  ->  SectorCommand -11 is unhandled.
+[12:10:42.6676][WARN]  ->  SectorCommand 37 is unhandled.
+[12:10:42.6676][WARN]  ->  SectorCommand -1 is unhandled.
+[12:10:42.6676][WARN]  ->  SectorCommand 21 is unhandled.
+[12:10:42.6676][WARN]  ->  SectorCommand 37 is unhandled.
+[12:10:42.6676][WARN]  ->  SectorCommand 13 is unhandled.
+[12:10:42.6676][WARN]  ->  SectorCommand 2 is unhandled.
+[12:10:44.6114][WARN]  ->  SectorCommand -53 is unhandled.
+[12:10:46.9913][WARN]  ->  SectorCommand -15 is unhandled.
+[12:10:46.9913][WARN]  ->  SectorCommand -21 is unhandled.
+[12:10:46.9913][WARN]  ->  SectorCommand -4 is unhandled.
+[12:10:46.9913][WARN]  ->  SectorCommand 20 is unhandled.
+[12:11:01.2158][WARN]  ->  SectorCommand -55 is unhandled.
+[12:11:06.3559][WARN]  ->  SectorCommand -8087 is unhandled.
+[12:11:06.3559][WARN]  ->  SectorCommand -63 is unhandled.
+[12:11:06.3559][WARN]  ->  SectorCommand -53 is unhandled.
+[12:11:08.3445][WARN]  ->  SectorCommand -1 is unhandled.
+[12:11:08.3445][WARN]  ->  SectorCommand -55 is unhandled.
+[12:11:08.3445][WARN]  ->  SectorCommand -28 is unhandled.
+[12:11:18.5984][WARN]  ->  SectorCommand -19 is unhandled.
+[12:11:18.5984][WARN]  ->  SectorCommand 19 is unhandled.
+[12:11:39.1770][WARN]  ->  SectorCommand 56 is unhandled.
+[12:11:39.1770][WARN]  ->  SectorCommand 40 is unhandled.
+[12:11:43.3515][WARN]  ->  SectorCommand -26 is unhandled.
+[12:11:49.4349][WARN]  ->  SectorCommand -25 is unhandled.
+[12:11:49.4349][WARN]  ->  SectorCommand -208396 is unhandled.
+[12:12:01.6145][WARN]  ->  SectorCommand 15 is unhandled.
+[12:12:01.6145][WARN]  ->  SectorCommand 52 is unhandled.
+[12:12:22.3251][WARN]  ->  SectorCommand -6988 is unhandled.
+[12:12:34.5785][WARN]  ->  SectorCommand 51 is unhandled.
+[13:48:56.7167][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[13:53:14.1451][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
+[13:57:21.3792][WARN]  ->  Failed to connect to the cluster. Retrying in 5sec.
