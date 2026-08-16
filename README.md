@@ -27,6 +27,8 @@
 | 界地狱塔 | BoundaryInfernoTower | 地狱塔克隆；每次攻击向随机位置发射火球 |
 | 界迫击炮 | BoundaryMortar | 0.3 秒快速攻击；炮弹在目标方向±90°内随机偏移落地，落点生成一只小骷髅 |
 | 界戈仑石人 | BoundaryGolem | 戈仑石人克隆；每 0.5 秒在自身施放 Zap（数据层无随机法术池，可换任意法术） |
+| 一个火枪手 | OneMusketeer | 火枪手克隆；发射全图火箭（前 3 发火箭→普通 的精确版需 Frida，脚本已备） |
+| 天鹰火炮 | EagleArtillery | 10 秒攻击；引导探针 7 秒倒计时跟随最近单位，同时从身后打出 3 发火箭 |
 
 ## 环境要求
 
@@ -121,6 +123,9 @@ ClashRoyale私服技术文档.md  完整开发/踩坑文档
   `RandomAngle` 是总扇区宽度：360=全方向，180=目标方向±90°；滚木那套
   `MinDistance+RandomAngle+Homing` 实测迫击炮/地狱龙均不生效；
   “落点生成单位”用投射物 `SpawnCharacter=角色`（哥布林飞桶同款，稳定可用）。
+- Frida 研究要点（模拟器实测）：模拟器可能走 **ARM 翻译**（加载 lib/arm/libg.so），
+  投射物对象大小 272 字节、创建调用点返回地址 = libg+0x7c117（战斗 tick 链
+  0xbc3a7/0x6b7f3 之下）；`_Znwj` 挂钩 + 调用点过滤即可在创建时精确计数。
 - `RandomAngle`/`RandomDistance` 只能随机投射物飞行/落点，不能随机出生点方向。
 - 版本较老：精英野蛮人 = `AngryBarbarian`，幻影刺客 = `Assassin`，狂暴 = `BarbarianRage`。
 

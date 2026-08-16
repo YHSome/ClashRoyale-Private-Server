@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
-"""界戈仑石人 (Boundary Golem) — 戈仑石人克隆。
+"""一个火枪手 (OneMusketeer) — 火枪手克隆。
 
-效果：每 0.5 秒（SpawnInterval=500）在自身召唤一只暗夜女巫。
-（实测：SpawnAreaObject=Zap 只在登场时放一次，不是每次攻击；
- 改为女巫/觉醒冰人同款的周期生成：SpawnStartTime=0 + SpawnInterval=500 + SpawnCharacter。
- 注意：生成目标不能是“卡牌角色”（会卡牌↔角色递归栈溢出），
- 所以用非卡牌克隆 BoundaryDarkWitch（保留暗夜女巫召唤蝙蝠的行为）。
+效果：前 3 发子弹是火箭（无距离限制），随后变回普通火枪手。
 
-实现：
-  * characters.csv        BoundaryGolem（克隆 Golem，HitSpeed/LoadTime=500，每 0.5s 生成 BoundaryDarkWitch）
-  * characters.csv        BoundaryDarkWitch（克隆 DarkWitch，非卡牌叶子，避免加载期递归）
-  * spells_characters.csv BoundaryGolem 卡（克隆 Golem 卡，8 费）
-  * texts.csv             TID_SPELL_BOUNDARY_GOLEM（CN: 界戈仑石人）
+实现：数据层没有“前 N 次攻击”计数机制，MorphCharacter 实测不生效；
+改用 Frida 精确计数：
+  * 数据默认 OneMusketeer = 只发射火箭、射程 40000（无 Frida 时的兜底行为）；
+  * Frida 脚本在战斗里挂投射物 tick，数到第 3 发火箭后，把数据对象的
+    Projectile 改回 MusketeerProjectile、Range 改回 6000 → 之后就是普通火枪手。
+  * 本脚本只负责数据部分；mod51-gadget 由 gadget 构建流程注入 libfrida-gadget。
 """
 
 import csv
@@ -22,8 +19,8 @@ import zipfile
 
 ROOT = r"C:\Users\YHSome\Projects\OtherProjects\ClashRoyal"
 SERVER_CSV = os.path.join(ROOT, "HashRoyale", "app", "GameAssets", "csv_logic")
-SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod47-nogadget.apk")
-OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod48-nogadget-unsigned.apk")
+SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod50-nogadget.apk")
+OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod51-nogadget-unsigned.apk")
 
 
 def sc_decompress(data: bytes) -> bytes:
@@ -77,38 +74,38 @@ def upsert(text: str, row) -> str:
     return text + fmt(row) + newline
 
 
+def remove_row(text: str, name: str) -> str:
+    newline = "\r\n" if "\r\n" in text else "\n"
+    lines = text.splitlines()
+    out = [ln for ln in lines if not (ln.startswith('"%s",' % name) or ln.startswith(name + ","))]
+    return newline.join(out) + newline
+
+
 def build_character(ch_rows, ch_h):
-    c = clone(ch_rows, "Golem")
-    setf(c, ch_h, "Name", "BoundaryGolem")
-    setf(c, ch_h, "HitSpeed", "500")
-    setf(c, ch_h, "LoadTime", "500")
-    setf(c, ch_h, "SpawnStartTime", "0")
-    setf(c, ch_h, "SpawnInterval", "5000")
-    setf(c, ch_h, "SpawnNumber", "1")
-    setf(c, ch_h, "SpawnPauseTime", "5000")
-    setf(c, ch_h, "SpawnCharacterLevelIndex", "1")
-    setf(c, ch_h, "SpawnCharacter", "BoundaryDarkWitch")
-    setf(c, ch_h, "SpawnRadius", "400")
-    setf(c, ch_h, "SpawnAreaObject", "")
-    setf(c, ch_h, "SpawnAreaObjectLevelIndex", "")
-    setf(c, ch_h, "TID", "TID_SPELL_BOUNDARY_GOLEM")
+    c = clone(ch_rows, "Musketeer")
+    setf(c, ch_h, "Name", "OneMusketeer")
+    setf(c, ch_h, "SightRange", "40000")
+    setf(c, ch_h, "Range", "40000")
+    setf(c, ch_h, "Projectile", "BoundaryOneMusketeerRocket")
+    setf(c, ch_h, "MorphCharacter", "")
+    setf(c, ch_h, "MorphTime", "")
+    setf(c, ch_h, "MorphKeepTarget", "")
+    setf(c, ch_h, "TID", "TID_SPELL_ONE_MUSKETEER")
     return c
 
 
-def build_dark_witch(ch_rows, ch_h):
-    """暗夜女巫的非卡牌克隆：保留远程攻击与召唤蝙蝠，避免卡牌↔角色递归。"""
-    c = clone(ch_rows, "DarkWitch")
-    setf(c, ch_h, "Name", "BoundaryDarkWitch")
-    setf(c, ch_h, "TID", "TID_SPELL_DARK_WITCH")
-    return c
+def build_projectile(pr_rows, pr_h):
+    p = clone(pr_rows, "RocketSpell")
+    setf(p, pr_h, "Name", "BoundaryOneMusketeerRocket")
+    return p
 
 
 def build_card(sc_rows, sc_h):
-    card = clone(sc_rows, "Golem")
-    setf(card, sc_h, "Name", "BoundaryGolem")
-    setf(card, sc_h, "SummonCharacter", "BoundaryGolem")
-    setf(card, sc_h, "TID", "TID_SPELL_BOUNDARY_GOLEM")
-    setf(card, sc_h, "TID_INFO", "TID_SPELL_INFO_BOUNDARY_GOLEM")
+    card = clone(sc_rows, "Musketeer")
+    setf(card, sc_h, "Name", "OneMusketeer")
+    setf(card, sc_h, "SummonCharacter", "OneMusketeer")
+    setf(card, sc_h, "TID", "TID_SPELL_ONE_MUSKETEER")
+    setf(card, sc_h, "TID_INFO", "TID_SPELL_INFO_ONE_MUSKETEER")
     return card
 
 
@@ -117,26 +114,26 @@ def build_texts(text: str):
     t_header = rows[0]
 
     def clone_text(tid):
-        r = clone(rows, "TID_SPELL_GOLEM")
+        r = clone(rows, "TID_CHARACTER_MUSKETEER")
         r[0] = tid
         return r
 
-    name_row = clone_text("TID_SPELL_BOUNDARY_GOLEM")
-    name_row[t_header.index("EN")] = "Boundary Golem"
-    name_row[t_header.index("CN")] = "界戈仑石人"
-    name_row[t_header.index("CNT")] = "界戈侖石人"
+    name_row = clone_text("TID_SPELL_ONE_MUSKETEER")
+    name_row[t_header.index("EN")] = "One Musketeer"
+    name_row[t_header.index("CN")] = "一个火枪手"
+    name_row[t_header.index("CNT")] = "一個火槍手"
 
-    info_row = clone_text("TID_SPELL_INFO_BOUNDARY_GOLEM")
-    info_row[t_header.index("EN")] = "Every 5s summons a Dark Witch at itself."
-    info_row[t_header.index("CN")] = "每 5 秒在自身召唤一只暗夜女巫。"
-    info_row[t_header.index("CNT")] = "每 5 秒在自身召喚一隻暗夜女巫。"
+    info_row = clone_text("TID_SPELL_INFO_ONE_MUSKETEER")
+    info_row[t_header.index("EN")] = "First 3 shots are unlimited-range rockets, then becomes a normal Musketeer."
+    info_row[t_header.index("CN")] = "前 3 发为全图火箭，随后变回普通火枪手。"
+    info_row[t_header.index("CNT")] = "前 3 發為全圖火箭，隨後變回普通火槍手。"
     return upsert(upsert(text, name_row), info_row)
 
 
-def patch_server(character, dark_witch, card):
+def patch_server(character, projectile, card):
     for fn, rows, kind in (
         ("characters.csv", character, "character"),
-        ("characters.csv", dark_witch, "dark_witch"),
+        ("projectiles.csv", projectile, "projectile"),
         ("spells_characters.csv", card, "card"),
     ):
         path = os.path.join(SERVER_CSV, fn)
@@ -150,6 +147,16 @@ def patch_server(character, dark_witch, card):
         else:
             print("skip server", fn, kind)
 
+    # 清理不再使用的变身阶段
+    chars_path = os.path.join(SERVER_CSV, "characters.csv")
+    with open(chars_path, "r", encoding="utf-8", newline="") as f:
+        text = f.read()
+    data = remove_row(text, "OneMusketeerNormal")
+    if data != text:
+        with open(chars_path, "w", encoding="utf-8", newline="") as f:
+            f.write(data)
+        print("removed server OneMusketeerNormal")
+
     texts_path = os.path.join(SERVER_CSV, "..", "csv_client", "texts.csv")
     with open(texts_path, "r", encoding="utf-8", newline="") as f:
         text = f.read()
@@ -162,19 +169,22 @@ def patch_server(character, dark_witch, card):
         print("skip server texts.csv")
 
 
-def patch_client(character, dark_witch, card):
+def patch_client(character, projectile, card):
     zin = zipfile.ZipFile(SRC_APK)
     out = {}
     file_text = {}
     for entry, row, kind in (
         ("assets/csv_logic/characters.csv", character, "character"),
-        ("assets/csv_logic/characters.csv", dark_witch, "dark_witch"),
+        ("assets/csv_logic/projectiles.csv", projectile, "projectile"),
         ("assets/csv_logic/spells_characters.csv", card, "card"),
     ):
         if entry not in file_text:
             file_text[entry] = sc_decompress(zin.read(entry)).decode("utf-8")
         file_text[entry] = upsert(file_text[entry], row)
         print("patched client", entry, kind)
+    entry = "assets/csv_logic/characters.csv"
+    file_text[entry] = remove_row(file_text[entry], "OneMusketeerNormal")
+    print("removed client OneMusketeerNormal")
     for entry, text in file_text.items():
         out[entry] = sc_compress(text.encode("utf-8"))
 
@@ -198,21 +208,20 @@ def patch_client(character, dark_witch, card):
 def main():
     with open(os.path.join(SERVER_CSV, "characters.csv"), encoding="utf-8", newline="") as f:
         ch_rows = parse(f.read())
+    with open(os.path.join(SERVER_CSV, "projectiles.csv"), encoding="utf-8", newline="") as f:
+        pr_rows = parse(f.read())
     with open(os.path.join(SERVER_CSV, "spells_characters.csv"), encoding="utf-8", newline="") as f:
         sc_rows = parse(f.read())
 
     character = build_character(ch_rows, ch_rows[0])
-    dark_witch = build_dark_witch(ch_rows, ch_rows[0])
+    projectile = build_projectile(pr_rows, pr_rows[0])
     card = build_card(sc_rows, sc_rows[0])
 
-    # 新卡在 spells_characters.csv 中的行号（1-based，卡组 InstanceId 用）：
-    # 新行号 = 已有数据行数 + 1
     instance_id = sum(1 for r in sc_rows[1:] if r and r[0]) + 1
-    print("BoundaryGolem spells_characters instance id:", instance_id)
-    print("global id: 26000000 +", instance_id, "=", 26000000 + instance_id)
+    print("OneMusketeer instance id:", instance_id, "global:", 26000000 + instance_id)
 
-    patch_server(character, dark_witch, card)
-    patch_client(character, dark_witch, card)
+    patch_server(character, projectile, card)
+    patch_client(character, projectile, card)
 
 
 if __name__ == "__main__":

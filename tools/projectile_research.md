@@ -96,3 +96,16 @@
 - bot 卡组已改为 8×界炸弹兵（服务器 MySQL player id=2 的 Home.deck 已同步更新，
   `cr_bot.py` 的 `BOT_DECK = [(26,61)]*8`，收集器优先级已移除）。
 - 主服 `ClashRoyale`、战斗服 `ClashRoyale.Battles`、bot `cr_bot.py` 正常运行。
+
+
+## 2026-08-17 补充（模拟器 ARM 翻译版）
+
+- 下载的安卓模拟器实际通过 **ARM 翻译**运行（`Process.findModuleByName('libg.so').path`
+  指向 `lib/arm/libg.so`，运行时代码是 Thumb；APK 里的 lib/x86 未生效）。
+- 本构建投射物对象大小 = **272 字节**（`_Znwj` 分配），创建调用点返回地址 =
+  `libg+0x7c117`，创建链 `0x7c117 <- 0x7c3cf <- 0x79a79 <- 0x7a155 <- 0x86c01 <-
+  0xa87cf <- 0xbaa2f <- 0xbc3a7 <- 0x6b7f3`（与早期记录的 ARM 战斗 tick 链一致）。
+- OneMusketeer 角色数据表自标定特征：相邻双 40000（Range/SightRange，偏移 +0/+0x14），
+  往回 -8 = 1100（攻速）、+104 = 600（装弹）；x86 静态反汇编不可用（.text 区域疑似加密/随机）。
+- 挂钩方案：`_Znwj` onEnter 记录 size，onLeave 用 `this.returnAddress` 过滤调用点，
+  即可在投射物创建时精确计数（`tools/frida_one_musketeer_hook.py`）。

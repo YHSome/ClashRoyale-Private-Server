@@ -16,3 +16,4 @@
 "NOT_IN_USE_6","not_in_use","Arena3","Common",3,,"TRUE",,,"Cannon",,,,,,,,,,,,,,,,,,,,,,,,,,,"SpellCasting",,"TID_SPELL_CANNON","TID_SPELL_INFO_CANNON",,,,,,,
 "BoundaryInfernoTower","building_inferno","Arena4","Rare","5","","","","","BoundaryInfernoTower","","","","","","","","","","","","","","","","","","","","","","","","","","","SpellCasting","","TID_SPELL_BOUNDARY_INFERNO_TOWER","TID_SPELL_INFO_BOUNDARY_INFERNO_TOWER","","","","","","",""
 "BoundaryMortar","building_mortar","Arena6","Common","4","","","","","BoundaryMortar","","","","","","","","","","","","","","","","","","","","","","","","","","","SpellCasting","","TID_SPELL_BOUNDARY_MORTAR","TID_SPELL_INFO_BOUNDARY_MORTAR","","","","","","",""
+"EagleArtillery","building_mortar","Arena6","Epic","8","","","","","EagleArtillery","","","","","","","","","","","","","","","","","","","","","","","","","","","SpellCasting","","TID_SPELL_EAGLE_ARTILLERY","TID_SPELL_INFO_EAGLE_ARTILLERY","","","","","","",""
