@@ -1,21 +1,14 @@
 #!/usr/bin/env python3
-"""界迫击炮 (Boundary Mortar) — A/B 交替增殖版。
+"""界迫击炮 (Boundary Mortar) — 快速乱射骷髅版。
 
-特性：
-  * 玩家下的界迫击炮 A（BoundaryMortar，蓝色外观）发射 A 炮弹；
-  * A 炮弹落地造成 108 范围伤害，并在落点生成一个容器 BoundaryMortarSpawner；
-  * 容器 100ms 后死亡，在距离落点 3000（3 格）的随机方向生成界迫击炮 B
-    （BoundaryMortar2，红色外观，作为“下一只”的视觉区分）；
-  * B 发射 B 炮弹，落地后同样经容器在 3 格偏移处生成 A；
-  * A↔B 无限交替增殖（不做数量上限，场地放满后自然停止）。
+效果：
+  * 攻击时间 0.3 秒（HitSpeed=LoadTime=300ms）；
+  * 每次攻击发射一枚迫击炮弹，落点随机方向偏移 3000（3 格）——
+    Homing=true + RandomAngle=360 + MinDistance=3000（界地狱龙滚木同款已验证机制）；
+  * 炮弹落地造成 108 伤害，并在落点生成 1 只小骷髅（Skeleton）
+    —— 投射物 SpawnCharacter=角色，哥布林飞桶同款已验证路径。
 
-数据链（避免 A 召唤 A 的自我引用崩溃）：
-  BoundaryMortar(A) --Projectile--> BoundaryMortarProjectile --SpawnCharacter--> BoundaryMortarSpawner
-      --DeathSpawnCharacter--> BoundaryMortar2(B)
-  BoundaryMortar2(B) --Projectile--> BoundaryMortarProjectile2 --SpawnCharacter--> BoundaryMortarSpawner2
-      --DeathSpawnCharacter--> BoundaryMortar(A)
-
-客户端必须包含卡组中所有自定义卡，故从 mod35（已含界迫击炮与全部自定义卡）构建。
+数据图无环（骷髅是角色叶子节点），加载期安全。
 """
 
 import csv
@@ -26,11 +19,11 @@ import zipfile
 
 ROOT = r"C:\Users\YHSome\Projects\OtherProjects\ClashRoyal"
 SERVER_CSV = os.path.join(ROOT, "HashRoyale", "app", "GameAssets", "csv_logic")
-SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod35-nogadget.apk")
-OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod36-nogadget-unsigned.apk")
+SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod41-nogadget.apk")
+OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod42-nogadget-unsigned.apk")
 
-# 1 tile = 1000（迫击炮射程 11500 = 11.5 格）；3 格 = 3000
-OFFSET_3_TILES = "3000"
+ATTACK_MS = "300"
+RANDOM_OFFSET = "3000"
 
 
 def sc_decompress(data: bytes) -> bytes:
@@ -100,52 +93,25 @@ def build_card(sb_rows, sb_h):
     return card
 
 
-def build_building_a(bd_rows, bd_h):
+def build_building(bd_rows, bd_h):
     b = clone(bd_rows, "Mortar")
     setf(b, bd_h, "Name", "BoundaryMortar")
+    setf(b, bd_h, "HitSpeed", ATTACK_MS)
+    setf(b, bd_h, "LoadTime", ATTACK_MS)
     setf(b, bd_h, "Projectile", "BoundaryMortarProjectile")
     setf(b, bd_h, "TID", "TID_BUILDING_BOUNDARY_MORTAR")
     return b
 
 
-def build_building_b(bd_rows, bd_h):
-    b = clone(bd_rows, "Mortar")
-    setf(b, bd_h, "Name", "BoundaryMortar2")
-    setf(b, bd_h, "Projectile", "BoundaryMortarProjectile2")
-    # 用敌方外观渲染，肉眼区分 A/B
-    setf(b, bd_h, "BlueExportName", "building_mortar1_enemy")
-    setf(b, bd_h, "RedExportName", "building_mortar1_enemy")
-    setf(b, bd_h, "TID", "TID_BUILDING_BOUNDARY_MORTAR")
-    return b
-
-
-def build_container(bd_rows, bd_h, name, spawns):
-    c = clone(bd_rows, "OneStopBarrelSpawner")
-    setf(c, bd_h, "Name", name)
-    setf(c, bd_h, "DeployTime", "100")
-    # 清掉飞桶容器的产兵/狂暴逻辑，只保留死亡生成
-    setf(c, bd_h, "SpawnStartTime", "")
-    setf(c, bd_h, "SpawnInterval", "")
-    setf(c, bd_h, "SpawnNumber", "")
-    setf(c, bd_h, "SpawnLimit", "")
-    setf(c, bd_h, "SpawnPauseTime", "")
-    setf(c, bd_h, "SpawnCharacter", "")
-    setf(c, bd_h, "SpawnRadius", "")
-    setf(c, bd_h, "DeathSpawnCount", "1")
-    setf(c, bd_h, "DeathSpawnCharacter", spawns)
-    setf(c, bd_h, "DeathSpawnRadius", OFFSET_3_TILES)
-    setf(c, bd_h, "DeathSpawnMinRadius", OFFSET_3_TILES)
-    setf(c, bd_h, "DeathSpawnDeployTime", "0")
-    setf(c, bd_h, "DeathAreaEffect", "")
-    return c
-
-
-def build_projectile(pr_rows, pr_h, name, container):
+def build_projectile(pr_rows, pr_h):
     p = clone(pr_rows, "MortarProjectile")
-    setf(p, pr_h, "Name", name)
+    setf(p, pr_h, "Name", "BoundaryMortarProjectile")
+    setf(p, pr_h, "Homing", "true")
+    setf(p, pr_h, "RandomAngle", "360")
+    setf(p, pr_h, "MinDistance", RANDOM_OFFSET)
     setf(p, pr_h, "SpawnCharacterLevelIndex", "1")
     setf(p, pr_h, "SpawnCharacterDeployTime", "0")
-    setf(p, pr_h, "SpawnCharacter", container)
+    setf(p, pr_h, "SpawnCharacter", "Skeleton")
     setf(p, pr_h, "SpawnConstPriority", "TRUE")
     setf(p, pr_h, "SpawnCharacterCount", "1")
     return p
@@ -154,8 +120,6 @@ def build_projectile(pr_rows, pr_h, name, container):
 def build_texts(text: str):
     rows = parse(text)
     t_header = rows[0]
-    if "TID_SPELL_BOUNDARY_MORTAR" in text:
-        return text
 
     def clone_text(tid):
         r = clone(rows, "TID_SPELL_MORTAR")
@@ -168,21 +132,17 @@ def build_texts(text: str):
     name_row[t_header.index("CNT")] = "界迫擊砲"
 
     info_row = clone_text("TID_SPELL_INFO_BOUNDARY_MORTAR")
-    info_row[t_header.index("EN")] = "A mortar shell that summons another mortar at the landing point."
-    info_row[t_header.index("CN")] = "炮弹落地后，在落点旁 3 格召唤界迫击炮，A/B 交替无限增殖。"
-    info_row[t_header.index("CNT")] = "砲彈落地後，在落點旁 3 格召喚界迫擊砲，A/B 交替無限增殖。"
+    info_row[t_header.index("EN")] = "Fast-firing mortar; shells land at random directions and spawn a Skeleton."
+    info_row[t_header.index("CN")] = "0.3秒快速攻击，随机方向发射炮弹，落点生成一只小骷髅。"
+    info_row[t_header.index("CNT")] = "0.3秒快速攻擊，隨機方向發射砲彈，落點生成一隻小骷髏。"
     return upsert(upsert(text, name_row), info_row)
 
 
-def patch_server(card, b_a, b_b, c_ab, c_ba, p_a, p_b):
+def patch_server(card, building, projectile):
     for fn, rows, kind in (
         ("spells_buildings.csv", card, "card"),
-        ("buildings.csv", b_a, "b_a"),
-        ("buildings.csv", b_b, "b_b"),
-        ("buildings.csv", c_ab, "c_ab"),
-        ("buildings.csv", c_ba, "c_ba"),
-        ("projectiles.csv", p_a, "p_a"),
-        ("projectiles.csv", p_b, "p_b"),
+        ("buildings.csv", building, "building"),
+        ("projectiles.csv", projectile, "projectile"),
     ):
         path = os.path.join(SERVER_CSV, fn)
         with open(path, "r", encoding="utf-8", newline="") as f:
@@ -195,10 +155,12 @@ def patch_server(card, b_a, b_b, c_ab, c_ba, p_a, p_b):
         else:
             print("skip server", fn, kind)
 
-    # 清理不再使用的旧行
     for fn, name in (
-        ("buildings.csv", "BoundaryMortarSummoned"),
-        ("projectiles.csv", "BoundaryMortarShell"),
+        ("buildings.csv", "BoundaryMortar2"),
+        ("buildings.csv", "BoundaryMortarSpawner2"),
+        ("projectiles.csv", "BoundaryMortarProjectile2"),
+        ("projectiles.csv", "BoundaryMortarProbe2"),
+        ("area_effect_objects.csv", "BoundaryMortarSummonAOE"),
     ):
         path = os.path.join(SERVER_CSV, fn)
         with open(path, "r", encoding="utf-8", newline="") as f:
@@ -210,27 +172,28 @@ def patch_server(card, b_a, b_b, c_ab, c_ba, p_a, p_b):
             print("removed server", fn, name)
 
 
-def patch_client(card, b_a, b_b, c_ab, c_ba, p_a, p_b):
+def patch_client(card, building, projectile):
     zin = zipfile.ZipFile(SRC_APK)
     out = {}
     file_text = {}
     for entry, row, kind in (
         ("assets/csv_logic/spells_buildings.csv", card, "card"),
-        ("assets/csv_logic/buildings.csv", b_a, "b_a"),
-        ("assets/csv_logic/buildings.csv", b_b, "b_b"),
-        ("assets/csv_logic/buildings.csv", c_ab, "c_ab"),
-        ("assets/csv_logic/buildings.csv", c_ba, "c_ba"),
-        ("assets/csv_logic/projectiles.csv", p_a, "p_a"),
-        ("assets/csv_logic/projectiles.csv", p_b, "p_b"),
+        ("assets/csv_logic/buildings.csv", building, "building"),
+        ("assets/csv_logic/projectiles.csv", projectile, "projectile"),
     ):
         if entry not in file_text:
             file_text[entry] = sc_decompress(zin.read(entry)).decode("utf-8")
         file_text[entry] = upsert(file_text[entry], row)
         print("patched client", entry, kind)
     for entry, name in (
-        ("assets/csv_logic/buildings.csv", "BoundaryMortarSummoned"),
-        ("assets/csv_logic/projectiles.csv", "BoundaryMortarShell"),
+        ("assets/csv_logic/buildings.csv", "BoundaryMortar2"),
+        ("assets/csv_logic/buildings.csv", "BoundaryMortarSpawner2"),
+        ("assets/csv_logic/projectiles.csv", "BoundaryMortarProjectile2"),
+        ("assets/csv_logic/projectiles.csv", "BoundaryMortarProbe2"),
+        ("assets/csv_logic/area_effect_objects.csv", "BoundaryMortarSummonAOE"),
     ):
+        if entry not in file_text:
+            file_text[entry] = sc_decompress(zin.read(entry)).decode("utf-8")
         file_text[entry] = remove_row(file_text[entry], name)
         print("removed client", entry, name)
     for entry, text in file_text.items():
@@ -262,15 +225,11 @@ def main():
         pr_rows = parse(f.read())
 
     card = build_card(sb_rows, sb_rows[0])
-    b_a = build_building_a(bd_rows, bd_rows[0])
-    b_b = build_building_b(bd_rows, bd_rows[0])
-    c_ab = build_container(bd_rows, bd_rows[0], "BoundaryMortarSpawner", "BoundaryMortar2")
-    c_ba = build_container(bd_rows, bd_rows[0], "BoundaryMortarSpawner2", "BoundaryMortar")
-    p_a = build_projectile(pr_rows, pr_rows[0], "BoundaryMortarProjectile", "BoundaryMortarSpawner")
-    p_b = build_projectile(pr_rows, pr_rows[0], "BoundaryMortarProjectile2", "BoundaryMortarSpawner2")
+    building = build_building(bd_rows, bd_rows[0])
+    projectile = build_projectile(pr_rows, pr_rows[0])
 
-    patch_server(card, b_a, b_b, c_ab, c_ba, p_a, p_b)
-    patch_client(card, b_a, b_b, c_ab, c_ba, p_a, p_b)
+    patch_server(card, building, projectile)
+    patch_client(card, building, projectile)
 
 
 if __name__ == "__main__":
