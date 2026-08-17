@@ -3,15 +3,15 @@
 
 效果：
   * 攻击距离与公主相同（Range=9000 / SightRange=9500）；
-  * 每次攻击向随机方向发射一枚迫击炮弹（伤害 1）；
+  * 每次攻击向目标发射一枚迫击炮弹（伤害 1）；
   * 炮弹落点召唤一个治疗法术（SpawnAreaEffectObject=Heal，半径 3000）。
 
 实现（全部为已验证的纯数据路径）：
   * characters.csv OneMusketeer：克隆 Musketeer，射程改成公主值，
     Projectile=BoundaryOneMusketeerShell；
   * projectiles.csv BoundaryOneMusketeerShell：克隆 MortarProjectile，
-    Damage=1 + RandomAngle=360（全方向）+ RandomDistance=4000（落点偏移 4 格）
-    + SpawnAreaEffectObject=Heal（界电磁炮同款“落点放法术”字段）；
+    Damage=1 + SpawnAreaEffectObject=Heal（界电磁炮同款“落点放法术”字段）；
+    不设 Homing/RandomAngle/RandomDistance，炮弹朝目标直射、落点放治疗。
   * 数据引用图无环（投射物→区域效果叶子节点），加载期安全。
 """
 
@@ -23,8 +23,8 @@ import zipfile
 
 ROOT = r"C:\Users\YHSome\Projects\OtherProjects\ClashRoyal"
 SERVER_CSV = os.path.join(ROOT, "HashRoyale", "app", "GameAssets", "csv_logic")
-SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod54-gadget.apk")
-OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod55-gadget-unsigned.apk")
+SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod55-gadget.apk")
+OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod56-gadget-unsigned.apk")
 
 
 def sc_decompress(data: bytes) -> bytes:
@@ -102,13 +102,13 @@ def build_character(ch_rows, ch_h):
 def build_projectile(pr_rows, pr_h):
     p = clone(pr_rows, "MortarProjectile")
     setf(p, pr_h, "Name", "BoundaryOneMusketeerShell")
-    # 随机方向（360=全方向）偏移落点 4 格，界迫击炮同款已验证组合
     setf(p, pr_h, "Speed", "600")
     setf(p, pr_h, "Gravity", "50")
     setf(p, pr_h, "Homing", "")
     setf(p, pr_h, "MinDistance", "")
-    setf(p, pr_h, "RandomAngle", "360")
-    setf(p, pr_h, "RandomDistance", "4000")
+    # 直射目标：不设 RandomAngle/RandomDistance
+    setf(p, pr_h, "RandomAngle", "")
+    setf(p, pr_h, "RandomDistance", "")
     # 伤害 1；落点施放治疗法术（界电磁炮同款 SpawnAreaEffectObject）
     setf(p, pr_h, "Damage", "1")
     setf(p, pr_h, "SpawnAreaEffectObject", "Heal")
@@ -139,9 +139,9 @@ def build_texts(text: str):
     name_row[t_header.index("CNT")] = "一個火槍手"
 
     info_row = clone_text("TID_SPELL_INFO_ONE_MUSKETEER")
-    info_row[t_header.index("EN")] = "Princess-like range. Fires 1-damage mortar shells in random directions; each shell casts Heal where it lands."
-    info_row[t_header.index("CN")] = "射程与公主相同。随机方向发射伤害 1 的迫击炮弹，落点施放治疗法术。"
-    info_row[t_header.index("CNT")] = "射程與公主相同。隨機方向發射傷害 1 的迫擊砲彈，落點施放治療法術。"
+    info_row[t_header.index("EN")] = "Princess-like range. Fires 1-damage mortar shells at targets; each shell casts Heal where it lands."
+    info_row[t_header.index("CN")] = "射程与公主相同。向目标发射伤害 1 的迫击炮弹，落点施放治疗法术。"
+    info_row[t_header.index("CNT")] = "射程與公主相同。向目標發射傷害 1 的迫擊砲彈，落點施放治療法術。"
     return upsert(upsert(text, name_row), info_row)
 
 
