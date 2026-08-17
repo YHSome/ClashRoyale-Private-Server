@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
-"""一个火枪手 (OneMusketeer) — 火枪手克隆。
+"""一个火枪手 (OneMusketeer) — 火枪手克隆（纯数据版）。
 
-效果：前 3 发子弹是火箭（无距离限制），随后变回普通火枪手。
+效果：
+  * 攻击距离与公主相同（Range=9000 / SightRange=9500）；
+  * 每次攻击向随机方向发射一枚迫击炮弹（伤害 1）；
+  * 炮弹落点召唤一个治疗法术（SpawnAreaEffectObject=Heal，半径 3000）。
 
-实现：数据层没有“前 N 次攻击”计数机制，MorphCharacter 实测不生效；
-改用 Frida 精确计数：
-  * 数据默认 OneMusketeer = 只发射火箭、射程 40000（无 Frida 时的兜底行为）；
-  * Frida 脚本在战斗里挂投射物 tick，数到第 3 发火箭后，把数据对象的
-    Projectile 改回 MusketeerProjectile、Range 改回 6000 → 之后就是普通火枪手。
-  * 本脚本只负责数据部分；mod51-gadget 由 gadget 构建流程注入 libfrida-gadget。
+实现（全部为已验证的纯数据路径）：
+  * characters.csv OneMusketeer：克隆 Musketeer，射程改成公主值，
+    Projectile=BoundaryOneMusketeerShell；
+  * projectiles.csv BoundaryOneMusketeerShell：克隆 MortarProjectile，
+    Damage=1 + RandomAngle=360（全方向）+ RandomDistance=4000（落点偏移 4 格）
+    + SpawnAreaEffectObject=Heal（界电磁炮同款“落点放法术”字段）；
+  * 数据引用图无环（投射物→区域效果叶子节点），加载期安全。
 """
 
 import csv
@@ -19,8 +23,8 @@ import zipfile
 
 ROOT = r"C:\Users\YHSome\Projects\OtherProjects\ClashRoyal"
 SERVER_CSV = os.path.join(ROOT, "HashRoyale", "app", "GameAssets", "csv_logic")
-SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod50-nogadget.apk")
-OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod51-nogadget-unsigned.apk")
+SRC_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod54-gadget.apk")
+OUT_APK = os.path.join(ROOT, "clients", "retroroyale-1.9.2-phone-mod55-gadget-unsigned.apk")
 
 
 def sc_decompress(data: bytes) -> bytes:
@@ -84,9 +88,10 @@ def remove_row(text: str, name: str) -> str:
 def build_character(ch_rows, ch_h):
     c = clone(ch_rows, "Musketeer")
     setf(c, ch_h, "Name", "OneMusketeer")
-    setf(c, ch_h, "SightRange", "40000")
-    setf(c, ch_h, "Range", "40000")
-    setf(c, ch_h, "Projectile", "BoundaryOneMusketeerRocket")
+    # 公主：Range=9000 / SightRange=9500
+    setf(c, ch_h, "SightRange", "9500")
+    setf(c, ch_h, "Range", "9000")
+    setf(c, ch_h, "Projectile", "BoundaryOneMusketeerShell")
     setf(c, ch_h, "MorphCharacter", "")
     setf(c, ch_h, "MorphTime", "")
     setf(c, ch_h, "MorphKeepTarget", "")
@@ -95,8 +100,18 @@ def build_character(ch_rows, ch_h):
 
 
 def build_projectile(pr_rows, pr_h):
-    p = clone(pr_rows, "RocketSpell")
-    setf(p, pr_h, "Name", "BoundaryOneMusketeerRocket")
+    p = clone(pr_rows, "MortarProjectile")
+    setf(p, pr_h, "Name", "BoundaryOneMusketeerShell")
+    # 随机方向（360=全方向）偏移落点 4 格，界迫击炮同款已验证组合
+    setf(p, pr_h, "Speed", "600")
+    setf(p, pr_h, "Gravity", "50")
+    setf(p, pr_h, "Homing", "")
+    setf(p, pr_h, "MinDistance", "")
+    setf(p, pr_h, "RandomAngle", "360")
+    setf(p, pr_h, "RandomDistance", "4000")
+    # 伤害 1；落点施放治疗法术（界电磁炮同款 SpawnAreaEffectObject）
+    setf(p, pr_h, "Damage", "1")
+    setf(p, pr_h, "SpawnAreaEffectObject", "Heal")
     return p
 
 
@@ -124,9 +139,9 @@ def build_texts(text: str):
     name_row[t_header.index("CNT")] = "一個火槍手"
 
     info_row = clone_text("TID_SPELL_INFO_ONE_MUSKETEER")
-    info_row[t_header.index("EN")] = "First 3 shots are unlimited-range rockets, then becomes a normal Musketeer."
-    info_row[t_header.index("CN")] = "前 3 发为全图火箭，随后变回普通火枪手。"
-    info_row[t_header.index("CNT")] = "前 3 發為全圖火箭，隨後變回普通火槍手。"
+    info_row[t_header.index("EN")] = "Princess-like range. Fires 1-damage mortar shells in random directions; each shell casts Heal where it lands."
+    info_row[t_header.index("CN")] = "射程与公主相同。随机方向发射伤害 1 的迫击炮弹，落点施放治疗法术。"
+    info_row[t_header.index("CNT")] = "射程與公主相同。隨機方向發射傷害 1 的迫擊砲彈，落點施放治療法術。"
     return upsert(upsert(text, name_row), info_row)
 
 
@@ -147,7 +162,7 @@ def patch_server(character, projectile, card):
         else:
             print("skip server", fn, kind)
 
-    # 清理不再使用的变身阶段
+    # 清理不再使用的旧变身阶段
     chars_path = os.path.join(SERVER_CSV, "characters.csv")
     with open(chars_path, "r", encoding="utf-8", newline="") as f:
         text = f.read()
@@ -156,6 +171,16 @@ def patch_server(character, projectile, card):
         with open(chars_path, "w", encoding="utf-8", newline="") as f:
             f.write(data)
         print("removed server OneMusketeerNormal")
+
+    # 清理旧的全图火箭投射物（新设计不再使用）
+    pr_path = os.path.join(SERVER_CSV, "projectiles.csv")
+    with open(pr_path, "r", encoding="utf-8", newline="") as f:
+        text = f.read()
+    data = remove_row(text, "BoundaryOneMusketeerRocket")
+    if data != text:
+        with open(pr_path, "w", encoding="utf-8", newline="") as f:
+            f.write(data)
+        print("removed server BoundaryOneMusketeerRocket")
 
     texts_path = os.path.join(SERVER_CSV, "..", "csv_client", "texts.csv")
     with open(texts_path, "r", encoding="utf-8", newline="") as f:
@@ -185,6 +210,9 @@ def patch_client(character, projectile, card):
     entry = "assets/csv_logic/characters.csv"
     file_text[entry] = remove_row(file_text[entry], "OneMusketeerNormal")
     print("removed client OneMusketeerNormal")
+    entry = "assets/csv_logic/projectiles.csv"
+    file_text[entry] = remove_row(file_text[entry], "BoundaryOneMusketeerRocket")
+    print("removed client BoundaryOneMusketeerRocket")
     for entry, text in file_text.items():
         out[entry] = sc_compress(text.encode("utf-8"))
 
